@@ -1,0 +1,139 @@
+# General Knowledge Source Hierarchy
+# Sources for broad information, encyclopedic content, and general research
+
+topic_type: general_knowledge
+description: "Sources for broad information and general knowledge research"
+
+sources:
+  priority_1: # Primary, authoritative general sources
+    - domain: "wikipedia.org"
+      name: "Wikipedia"
+      base_reliability: 0.85
+      notes: "Crowdsourced encyclopedia - excellent starting point, verify citations"
+
+    - domain: "britannica.com"
+      name: "Encyclopaedia Britannica"
+      base_reliability: 0.95
+      notes: "Professional encyclopedia with editorial oversight"
+
+    - domain: "stanford.edu"
+      name: "Stanford Encyclopedia of Philosophy"
+      base_reliability: 0.98
+      notes: "Peer-reviewed philosophy reference"
+
+    - domain: "who.int"
+      name: "World Health Organization"
+      base_reliability: 0.95
+      notes: "Official health information"
+
+    - domain: "cdc.gov"
+      name: "CDC"
+      base_reliability: 0.95
+      notes: "US Centers for Disease Control"
+
+    - domain: "nasa.gov"
+      name: "NASA"
+      base_reliability: 0.98
+      notes: "Space and aeronautics information"
+
+    - domain: "gov.uk"
+      name: "UK Government"
+      base_reliability: 0.90
+      notes: "UK official government information"
+
+    - domain: "usa.gov"
+      name: "USA.gov"
+      base_reliability: 0.90
+      notes: "US official government information"
+
+  priority_2: # Secondary, reputable sources
+    - domain: "bbc.com"
+      name: "BBC"
+      base_reliability: 0.85
+      notes: "British Broadcasting Corporation - news and features"
+
+    - domain: "reuters.com"
+      name: "Reuters"
+      base_reliability: 0.88
+      notes: "International news agency"
+
+    - domain: "apnews.com"
+      name: "Associated Press"
+      base_reliability: 0.88
+      notes: "International news agency"
+
+    - domain: "nytimes.com"
+      name: "New York Times"
+      base_reliability: 0.82
+      notes: "Major US newspaper"
+
+    - domain: "theguardian.com"
+      name: "The Guardian"
+      base_reliability: 0.82
+      notes: "Major UK newspaper"
+
+    - domain: "economist.com"
+      name: "The Economist"
+      base_reliability: 0.85
+      notes: "International news and analysis"
+
+    - domain: "nationalgeographic.com"
+      name: "National Geographic"
+      base_reliability: 0.88
+      notes: "Science, geography, history, culture"
+
+    - domain: "smithsonianmag.com"
+      name: "Smithsonian Magazine"
+      base_reliability: 0.88
+      notes: "Science, history, arts, culture"
+
+  priority_3: # Tertiary, verify quality
+    - domain: "history.com"
+      name: "History.com"
+      base_reliability: 0.75
+      notes: "History content - sometimes sensationalized"
+
+    - domain: "livescience.com"
+      name: "Live Science"
+      base_reliability: 0.75
+      notes: "Science news - verify with primary sources"
+
+    - domain: "howstuffworks.com"
+      name: "HowStuffWorks"
+      base_reliability: 0.75
+      notes: "Explanatory content - good for overviews"
+
+    - domain: "vox.com"
+      name: "Vox"
+      base_reliability: 0.72
+      notes: "Explanatory journalism - has editorial perspective"
+
+    - domain: "wired.com"
+      name: "Wired"
+      base_reliability: 0.78
+      notes: "Technology and culture coverage"
+
+blacklist: # Avoid for general knowledge
+  - domain: "twitter.com"
+    reason: "Social media - unverified claims"
+  - domain: "facebook.com"
+    reason: "Social media - unverified claims"
+  - domain: "reddit.com"
+    reason: "Social media - verify independently"
+  - domain: "tiktok.com"
+    reason: "Social media - not reliable source"
+  - domain: "infowars.com"
+    reason: "Known misinformation source"
+  - domain: "naturalnews.com"
+    reason: "Known misinformation source"
+
+quality_indicators:
+  required:
+    - author_attribution
+    - publication_date
+  preferred:
+    - editorial_oversight
+    - citations
+    - corrections_policy
+    - fact_checking
+    - institutional_backing

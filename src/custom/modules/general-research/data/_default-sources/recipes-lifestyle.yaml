@@ -1,0 +1,126 @@
+# Recipes & Lifestyle Source Hierarchy
+# Sources for recipes, cooking, how-tos, and lifestyle content
+
+topic_type: recipes_lifestyle
+description: "Sources for recipes, cooking guides, and lifestyle content"
+
+sources:
+  priority_1: # Primary, trusted recipe sources
+    - domain: "seriouseats.com"
+      name: "Serious Eats"
+      base_reliability: 0.95
+      notes: "Science-based cooking with tested recipes"
+
+    - domain: "bonappetit.com"
+      name: "Bon Appétit"
+      base_reliability: 0.90
+      notes: "Professional food magazine"
+
+    - domain: "foodnetwork.com"
+      name: "Food Network"
+      base_reliability: 0.85
+      notes: "TV network recipes - professionally tested"
+
+    - domain: "epicurious.com"
+      name: "Epicurious"
+      base_reliability: 0.88
+      notes: "Recipe database with user reviews"
+
+    - domain: "cooking.nytimes.com"
+      name: "NYT Cooking"
+      base_reliability: 0.90
+      notes: "New York Times recipe collection"
+
+    - domain: "americastestkitchen.com"
+      name: "America's Test Kitchen"
+      base_reliability: 0.95
+      notes: "Rigorously tested recipes"
+
+    - domain: "kingarthurbaking.com"
+      name: "King Arthur Baking"
+      base_reliability: 0.95
+      notes: "Expert baking resources"
+
+  priority_2: # Secondary, popular recipe sources
+    - domain: "allrecipes.com"
+      name: "AllRecipes"
+      base_reliability: 0.78
+      notes: "User-submitted recipes - check ratings and reviews"
+
+    - domain: "food52.com"
+      name: "Food52"
+      base_reliability: 0.85
+      notes: "Community recipes and food content"
+
+    - domain: "simplyrecipes.com"
+      name: "Simply Recipes"
+      base_reliability: 0.85
+      notes: "Home cooking recipes"
+
+    - domain: "thekitchn.com"
+      name: "The Kitchn"
+      base_reliability: 0.82
+      notes: "Cooking and home content"
+
+    - domain: "budgetbytes.com"
+      name: "Budget Bytes"
+      base_reliability: 0.82
+      notes: "Budget-friendly cooking"
+
+    - domain: "cookieandkate.com"
+      name: "Cookie and Kate"
+      base_reliability: 0.82
+      notes: "Vegetarian recipes"
+
+    - domain: "minimalistbaker.com"
+      name: "Minimalist Baker"
+      base_reliability: 0.82
+      notes: "Simple vegan recipes"
+
+  priority_3: # Tertiary, verify quality
+    - domain: "tasty.co"
+      name: "Tasty"
+      base_reliability: 0.70
+      notes: "BuzzFeed recipes - entertaining but verify techniques"
+
+    - domain: "delish.com"
+      name: "Delish"
+      base_reliability: 0.72
+      notes: "Popular recipes - sometimes prioritizes novelty"
+
+    - domain: "yummly.com"
+      name: "Yummly"
+      base_reliability: 0.70
+      notes: "Recipe aggregator - verify original source"
+
+    - domain: "pinterest.com"
+      name: "Pinterest"
+      base_reliability: 0.60
+      notes: "Links to various sources - verify destination"
+
+    - domain: "foodgawker.com"
+      name: "Foodgawker"
+      base_reliability: 0.65
+      notes: "Recipe aggregator - verify original source"
+
+blacklist: # Avoid for recipes
+  - domain: "twitter.com"
+    reason: "Social media - not reliable for full recipes"
+  - domain: "facebook.com"
+    reason: "Social media - not reliable for full recipes"
+  - domain: "tiktok.com"
+    reason: "Short-form video - often incomplete instructions"
+
+quality_indicators:
+  required:
+    - ingredient_list
+    - step_by_step_instructions
+  preferred:
+    - prep_time
+    - cook_time
+    - serving_size
+    - nutritional_info
+    - user_reviews
+    - photos
+    - video_tutorial
+    - author_credentials

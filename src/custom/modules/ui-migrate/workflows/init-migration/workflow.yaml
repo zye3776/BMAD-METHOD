@@ -1,0 +1,44 @@
+# Init Migration Workflow Configuration
+# UI Migration Toolkit - Initialize a new migration project
+
+name: "init-migration"
+description: "Initialize a new UI migration project with state tracking"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+migrations_output: "{config_source}:migrations_output"
+coding_standards_path: "{config_source}:coding_standards_path"
+date: system-generated
+
+# Template for state file
+state_template: "{project-root}/_bmad/ui-migrate/templates/migration-state.yaml"
+
+# Workflow configuration
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/init-migration"
+template: false # Action workflow - no document template
+instructions: "{installed_path}/instructions.md"
+
+# Variables collected during workflow
+variables:
+  migration_name:
+    prompt: "Migration project name (kebab-case, e.g., 'landing-page')"
+    required: true
+  source_path:
+    prompt: "Path to AI-generated source code"
+    required: true
+  initial_mode:
+    prompt: "Starting mode"
+    default: "interactive"
+    options:
+      - interactive
+      - yolo
+
+# Output paths (resolved with migration_name)
+output:
+  migration_folder: "{migrations_output}/{{migration_name}}"
+  state_file: "{migrations_output}/{{migration_name}}/migration-state.yaml"
+
+standalone: true

@@ -1,5 +1,10 @@
 # Dependencies
 **/node_modules/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
 pnpm-lock.yaml
 bun.lock
 deno.lock
@@ -89,3 +94,5 @@ build/
 
 # Web bundle release artifacts
 dist/web-bundles/
+
+.developers/

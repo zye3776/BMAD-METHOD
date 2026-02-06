@@ -1,0 +1,36 @@
+# Validate Migration Workflow Configuration
+# UI Migration Toolkit Module
+
+name: "validate-migration"
+description: "Validate migrated components with four-layer validation: Visual, Functional, Unit Tests, Standards"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+migrations_output: "{config_source}:migrations_output"
+coding_standards_path: "{config_source}:coding_standards_path"
+date: system-generated
+
+# Input file patterns
+input_file_patterns:
+  migration_status:
+    description: "Current migration status"
+    whole: "{migrations_output}/migration-status.json"
+    load_strategy: "FULL_LOAD"
+  migration_plan:
+    description: "Migration plan for reference"
+    whole: "{migrations_output}/migration-plan-*.md"
+    load_strategy: "FULL_LOAD"
+
+# Workflow type - action workflow with report output
+template: true
+instructions: "{installed_path}/instructions.md"
+default_output_file: "{migrations_output}/validation-report-{{date}}.md"
+template_file: "{installed_path}/template.md"
+
+# Installation path
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/validate-migration"
+
+standalone: true

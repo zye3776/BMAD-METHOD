@@ -1,0 +1,39 @@
+# Execute Migration Workflow Configuration
+# UI Migration Toolkit Module
+
+name: "execute-migration"
+description: "Execute approved migration plan, creating components with co-located tests and standards compliance"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+submodule_path: "{config_source}:submodule_path"
+migrations_output: "{config_source}:migrations_output"
+coding_standards_path: "{config_source}:coding_standards_path"
+test_file_suffix: "{config_source}:test_file_suffix"
+date: system-generated
+
+# Input file patterns - load migration plan
+input_file_patterns:
+  migration_plan:
+    description: "Migration plan from create-migration-plan workflow"
+    whole: "{migrations_output}/migration-plan-*.md"
+    load_strategy: "FULL_LOAD"
+  source_architecture:
+    description: "Source architecture analysis"
+    whole: "{migrations_output}/source-architecture-*.md"
+    load_strategy: "FULL_LOAD"
+
+# Workflow type - action workflow (no template output)
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Status tracking file
+status_file: "{migrations_output}/migration-status.json"
+
+# Installation path
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/execute-migration"
+
+standalone: true

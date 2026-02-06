@@ -1,0 +1,189 @@
+# Migration State Template
+# UI Migration Toolkit - Auto-generated state file
+# DO NOT EDIT MANUALLY unless you know what you're doing
+#
+# This file tracks the complete state of a migration project.
+# It is created by the init-migration workflow and updated
+# throughout the migration lifecycle.
+
+migration:
+  id: "{{migration_id}}"
+  name: "{{migration_name}}"
+  created_at: "{{created_at}}"
+  source_path: "{{source_path}}"
+  target_project: "{{target_project}}"
+  coding_standards: "{{coding_standards_path}}"
+
+# Execution mode: interactive | yolo | yolo-until-checkpoint
+# - interactive: Confirm each step, full user control
+# - yolo: Automated execution, simulate expert decisions
+# - yolo-until-checkpoint: YOLO until next major checkpoint, then pause
+mode: "interactive"
+
+# Checkpoint behavior for yolo-until-checkpoint mode
+# Checkpoints pause execution even in YOLO mode
+checkpoint_triggers:
+  - "phase_complete" # Pause after each phase
+  - "first_component_migrated" # Pause after first visual component
+  - "workflow_complete" # Pause after any workflow completes
+
+phases:
+  - id: "init"
+    name: "Initialize Migration"
+    description: "Set up migration project and analyze source"
+    status: "pending"
+    tasks:
+      - id: 1
+        name: "Create migration folder structure"
+        type: "action"
+        status: "pending"
+      - id: 2
+        name: "Copy source path configuration"
+        type: "action"
+        status: "pending"
+    commit: null
+
+  - id: "analyze"
+    name: "Source Analysis"
+    description: "Deep analysis of AI-generated source code"
+    status: "pending"
+    tasks:
+      - id: 1
+        name: "Run source analysis workflow"
+        type: "workflow"
+        ref: "analyze-source"
+        agent: "source-analyst"
+        status: "pending"
+      - id: 2
+        name: "Review architecture document"
+        type: "checkpoint"
+        description: "User reviews generated architecture doc"
+        status: "pending"
+    commit: null
+
+  - id: "plan"
+    name: "Migration Planning"
+    description: "Create scope-aware migration strategy"
+    status: "pending"
+    tasks:
+      - id: 1
+        name: "Select migration scope (Refresh/Addition/Extraction)"
+        type: "agent-action"
+        ref: "scope"
+        agent: "migration-architect"
+        status: "pending"
+      - id: 2
+        name: "Compare source vs target patterns"
+        type: "agent-action"
+        ref: "compare"
+        agent: "migration-architect"
+        status: "pending"
+      - id: 3
+        name: "Generate migration plan"
+        type: "workflow"
+        ref: "create-migration-plan"
+        agent: "migration-architect"
+        status: "pending"
+      - id: 4
+        name: "Review and approve migration plan"
+        type: "checkpoint"
+        description: "User approves the migration plan before execution"
+        status: "pending"
+    commit: null
+
+  - id: "execute"
+    name: "Execute Migration"
+    description: "Implement migration tasks with tests"
+    status: "pending"
+    # Tasks are populated dynamically from migration plan
+    # Each component becomes a task with:
+    # - type: "component-migration"
+    # - ref: component name
+    # - agent: "integration-engineer"
+    tasks: []
+    commit: null
+
+  - id: "validate"
+    name: "Validation"
+    description: "Four-layer validation of migrated components"
+    status: "pending"
+    tasks:
+      - id: 1
+        name: "Run validation workflow"
+        type: "workflow"
+        ref: "validate-migration"
+        agent: "integration-engineer"
+        status: "pending"
+      - id: 2
+        name: "Review validation report"
+        type: "checkpoint"
+        description: "User reviews validation results"
+        status: "pending"
+    commit: null
+
+  - id: "complete"
+    name: "Complete Migration"
+    description: "Finalize migration and process remaining fixes"
+    status: "pending"
+    tasks:
+      - id: 1
+        name: "Process fix queue"
+        type: "fix-queue"
+        description: "Resolve all pending lint/test fixes"
+        status: "pending"
+      - id: 2
+        name: "Final cleanup"
+        type: "action"
+        description: "Remove deprecated components if approved"
+        status: "pending"
+      - id: 3
+        name: "Migration complete review"
+        type: "checkpoint"
+        description: "Final user sign-off"
+        status: "pending"
+    commit: null
+
+# Current position in the migration
+current:
+  phase: "init"
+  task: 1
+
+# Queue of fixes needed from failed pre-commit hooks
+# Populated when commits use --no-verify
+fix_queue: []
+# Example entry:
+# - id: "fix-001"
+#   phase: "execute"
+#   component: "Button"
+#   type: "lint"  # lint | test | type-check | other
+#   files:
+#     - "src/components/Button/Button.tsx"
+#   error: "Unexpected console statement (no-console)"
+#   error_full: |
+#     src/components/Button/Button.tsx
+#       Line 15:5: Unexpected console statement no-console
+#   status: "pending"  # pending | in_progress | resolved | deferred
+#   created_at: "2024-12-15T10:30:00Z"
+#   resolved_at: null
+#   resolution_commit: null
+
+# Commit history for this migration
+commits: []
+# Example entry:
+# - phase: "init"
+#   hash: "abc1234"
+#   message: "chore(migrate): initialize landing-page migration"
+#   hooks_skipped: false
+#   timestamp: "2024-12-15T10:30:00Z"
+#   files_changed: 5
+
+# Migration statistics (updated as migration progresses)
+stats:
+  total_components: 0
+  components_migrated: 0
+  tests_created: 0
+  tests_passing: 0
+  fixes_pending: 0
+  fixes_resolved: 0
+  commits_total: 0
+  commits_with_skipped_hooks: 0

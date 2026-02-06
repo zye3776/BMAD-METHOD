@@ -1,0 +1,35 @@
+# Create Migration Plan Workflow Configuration
+# UI Migration Toolkit Module
+
+name: "create-migration-plan"
+description: "Create scope-aware migration plan comparing source against target project"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+submodule_path: "{config_source}:submodule_path"
+migrations_output: "{config_source}:migrations_output"
+coding_standards_path: "{config_source}:coding_standards_path"
+date: system-generated
+
+# Input file patterns - load previous analysis
+input_file_patterns:
+  source_architecture:
+    description: "Source architecture analysis from analyze-source workflow"
+    whole: "{migrations_output}/source-architecture-*.md"
+    load_strategy: "FULL_LOAD"
+
+# Workflow type
+template: true
+instructions: "{installed_path}/instructions.md"
+default_output_file: "{migrations_output}/migration-plan-{{date}}.md"
+
+# Template for output
+template_file: "{installed_path}/template.md"
+
+# Installation path
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/create-migration-plan"
+
+standalone: true

@@ -1,0 +1,37 @@
+# Migration Status Workflow Configuration
+# UI Migration Toolkit Module
+
+name: "migration-status"
+description: "Check and display current migration progress"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+migrations_output: "{config_source}:migrations_output"
+date: system-generated
+
+# Input file patterns
+input_file_patterns:
+  migration_status:
+    description: "Current migration status tracker"
+    whole: "{migrations_output}/migration-status.json"
+    load_strategy: "FULL_LOAD"
+  migration_plan:
+    description: "Migration plan"
+    whole: "{migrations_output}/migration-plan-*.md"
+    load_strategy: "FULL_LOAD"
+  issues_log:
+    description: "Issues log"
+    whole: "{migrations_output}/issues-log.md"
+    load_strategy: "FULL_LOAD"
+
+# Workflow type - action workflow (display only)
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Installation path
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/migration-status"
+
+standalone: true

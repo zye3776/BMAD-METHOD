@@ -1,0 +1,51 @@
+# Scrape Workflow Configuration
+# Web scraping with intelligent source selection
+name: "scrape"
+description: "Web scraping with intelligent source selection and reliability scoring"
+author: "General Research Module"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/general-research/config.yaml"
+output_folder: "{config_source}:output_folder"
+research_output_path: "{config_source}:research_output_path"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+min_reliability_score: "{config_source}:min_reliability_score"
+date: system-generated
+
+# Workflow file paths
+installed_path: "{project-root}/_bmad/general-research/workflows/scrape"
+template: false # No document output, returns data
+instructions: "{installed_path}/instructions.md"
+
+# State management
+state_path: "{project-root}/.general-research/state"
+
+# Default source hierarchies
+source_hierarchies: "{project-root}/_bmad/general-research/data/_default-sources/"
+
+standalone: true
+
+# Scraping configuration
+scraping_config:
+  default_delay_ms: 2000
+  max_retries: 3
+  backoff_multiplier: 2
+  min_content_length: 100
+  max_content_length: 50000
+  respect_robots_txt: true
+  user_agent: "GeneralResearch/1.0 (Educational Research Tool)"
+  timeout_ms: 30000
+
+# Error handling configuration
+error_handling:
+  source_unavailable: "skip_with_warning"
+  rate_limited: "exponential_backoff"
+  extraction_failed: "log_skip_flag"
+  network_timeout: "retry_once_then_skip"
+  invalid_robots_txt: "assume_disallow"
+
+# Quality thresholds
+quality_thresholds:
+  min_reliability_score: 0.7
+  min_content_depth_words: 500

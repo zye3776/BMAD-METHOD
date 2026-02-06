@@ -1,0 +1,140 @@
+# Technical Documentation Source Hierarchy
+# Sources for software documentation, tutorials, and technical guides
+
+topic_type: technical_documentation
+description: "Sources for software docs, tutorials, and technical guides"
+
+sources:
+  priority_1: # Primary, authoritative technical sources
+    - domain: "docs.python.org"
+      name: "Python Official Docs"
+      base_reliability: 0.98
+      notes: "Official Python documentation"
+
+    - domain: "developer.mozilla.org"
+      name: "MDN Web Docs"
+      base_reliability: 0.98
+      notes: "Mozilla's web technology documentation - gold standard"
+
+    - domain: "docs.microsoft.com"
+      name: "Microsoft Docs"
+      base_reliability: 0.95
+      notes: "Official Microsoft documentation"
+
+    - domain: "cloud.google.com/docs"
+      name: "Google Cloud Docs"
+      base_reliability: 0.95
+      notes: "Official Google Cloud documentation"
+
+    - domain: "docs.aws.amazon.com"
+      name: "AWS Documentation"
+      base_reliability: 0.95
+      notes: "Official AWS documentation"
+
+    - domain: "kubernetes.io/docs"
+      name: "Kubernetes Docs"
+      base_reliability: 0.95
+      notes: "Official Kubernetes documentation"
+
+    - domain: "react.dev"
+      name: "React Documentation"
+      base_reliability: 0.98
+      notes: "Official React documentation"
+
+    - domain: "nodejs.org/docs"
+      name: "Node.js Docs"
+      base_reliability: 0.98
+      notes: "Official Node.js documentation"
+
+    - domain: "rust-lang.org"
+      name: "Rust Documentation"
+      base_reliability: 0.98
+      notes: "Official Rust language documentation"
+
+    - domain: "go.dev/doc"
+      name: "Go Documentation"
+      base_reliability: 0.98
+      notes: "Official Go language documentation"
+
+  priority_2: # Secondary, community-vetted sources
+    - domain: "github.com"
+      name: "GitHub"
+      base_reliability: 0.85
+      notes: "Repository READMEs and wikis - verify project popularity"
+
+    - domain: "stackoverflow.com"
+      name: "Stack Overflow"
+      base_reliability: 0.80
+      notes: "Community Q&A - verify vote count and acceptance"
+
+    - domain: "dev.to"
+      name: "DEV Community"
+      base_reliability: 0.75
+      notes: "Developer blog platform - verify author credibility"
+
+    - domain: "digitalocean.com/community/tutorials"
+      name: "DigitalOcean Tutorials"
+      base_reliability: 0.85
+      notes: "High-quality technical tutorials"
+
+    - domain: "freecodecamp.org"
+      name: "freeCodeCamp"
+      base_reliability: 0.80
+      notes: "Learn to code tutorials and articles"
+
+    - domain: "css-tricks.com"
+      name: "CSS-Tricks"
+      base_reliability: 0.85
+      notes: "Web development tutorials and guides"
+
+    - domain: "smashingmagazine.com"
+      name: "Smashing Magazine"
+      base_reliability: 0.85
+      notes: "Web development and design articles"
+
+  priority_3: # Tertiary, verify quality individually
+    - domain: "medium.com"
+      name: "Medium (Tech)"
+      base_reliability: 0.65
+      notes: "Blog platform - highly variable quality, verify author"
+
+    - domain: "hashnode.dev"
+      name: "Hashnode"
+      base_reliability: 0.70
+      notes: "Developer blog platform - verify author credibility"
+
+    - domain: "tutorialspoint.com"
+      name: "TutorialsPoint"
+      base_reliability: 0.65
+      notes: "Tutorial site - sometimes outdated, verify dates"
+
+    - domain: "w3schools.com"
+      name: "W3Schools"
+      base_reliability: 0.70
+      notes: "Web tutorials - good for basics, sometimes imprecise"
+
+    - domain: "geeksforgeeks.org"
+      name: "GeeksforGeeks"
+      base_reliability: 0.70
+      notes: "CS tutorials and interview prep - verify accuracy"
+
+blacklist: # Avoid for technical documentation
+  - domain: "twitter.com"
+    reason: "Social media - not comprehensive"
+  - domain: "facebook.com"
+    reason: "Social media - not comprehensive"
+  - domain: "quora.com"
+    reason: "Q&A - inconsistent quality for technical content"
+  - domain: "answers.yahoo.com"
+    reason: "Deprecated and low quality"
+
+quality_indicators:
+  required:
+    - code_examples
+    - version_specified
+  preferred:
+    - official_source
+    - last_updated_date
+    - working_examples
+    - api_reference
+    - changelog

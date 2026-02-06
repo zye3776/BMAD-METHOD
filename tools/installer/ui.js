@@ -18,6 +18,7 @@ const channelResolver = require('./modules/channel-resolver');
 const prompts = require('./prompts');
 const { parseSetEntries } = require('./set-overrides');
 const { inferShimPreference, readInstalledSkillIds } = require('./core/shim-policy');
+const { promptForDirectoryWithPicker } = require('./directory-picker');
 
 const manifest = new Manifest();
 
@@ -1477,23 +1478,9 @@ class UI {
    * @returns {Object} Directory answer from prompt
    */
   async promptForDirectory() {
-    // Use sync validation because @clack/prompts doesn't support async validate
-    const directory = await prompts.directory({
-      message: 'Installation directory:',
-      default: process.cwd(),
-      placeholder: process.cwd(),
-      validate: (input) => this.validateDirectorySync(input),
-    });
-
-    // Apply filter logic
-    let filteredDir = directory;
-    if (!filteredDir || filteredDir.trim() === '') {
-      filteredDir = process.cwd();
-    } else {
-      filteredDir = this.expandUserPath(filteredDir);
-    }
-
-    return { directory: filteredDir };
+    // Use extracted directory picker with ~/projects listing
+    // See directory-picker.js for the implementation
+    return await promptForDirectoryWithPicker(this);
   }
 
   /**

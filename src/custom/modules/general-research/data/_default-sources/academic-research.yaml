@@ -1,0 +1,119 @@
+# Academic Research Source Hierarchy
+# Sources for academic papers, scholarly articles, and peer-reviewed content
+
+topic_type: academic_research
+description: "Sources for academic papers and scholarly articles"
+
+sources:
+  priority_1: # Primary, most reliable academic sources
+    - domain: "scholar.google.com"
+      name: "Google Scholar"
+      base_reliability: 0.95
+      notes: "Comprehensive academic search, aggregates peer-reviewed content"
+
+    - domain: "pubmed.ncbi.nlm.nih.gov"
+      name: "PubMed"
+      base_reliability: 0.98
+      notes: "NIH biomedical literature database, gold standard for medical research"
+
+    - domain: "arxiv.org"
+      name: "arXiv"
+      base_reliability: 0.90
+      notes: "Preprint server for physics, math, CS, biology. Not peer-reviewed but high quality"
+
+    - domain: "ieee.org"
+      name: "IEEE Xplore"
+      base_reliability: 0.95
+      notes: "Electrical engineering and computer science research"
+
+    - domain: "jstor.org"
+      name: "JSTOR"
+      base_reliability: 0.95
+      notes: "Digital library of academic journals, books, primary sources"
+
+    - domain: "nature.com"
+      name: "Nature"
+      base_reliability: 0.98
+      notes: "Premier multidisciplinary science journal"
+
+    - domain: "science.org"
+      name: "Science (AAAS)"
+      base_reliability: 0.98
+      notes: "American Association for Advancement of Science journal"
+
+  priority_2: # Secondary, reliable academic sources
+    - domain: "researchgate.net"
+      name: "ResearchGate"
+      base_reliability: 0.80
+      notes: "Social network for researchers, hosts papers and preprints"
+
+    - domain: "semanticscholar.org"
+      name: "Semantic Scholar"
+      base_reliability: 0.85
+      notes: "AI-powered research tool, good for finding related work"
+
+    - domain: "sciencedirect.com"
+      name: "ScienceDirect"
+      base_reliability: 0.90
+      notes: "Elsevier's platform for peer-reviewed literature"
+
+    - domain: "springer.com"
+      name: "Springer"
+      base_reliability: 0.90
+      notes: "Major academic publisher"
+
+    - domain: "wiley.com"
+      name: "Wiley Online Library"
+      base_reliability: 0.90
+      notes: "Major academic publisher"
+
+    - domain: "acm.org"
+      name: "ACM Digital Library"
+      base_reliability: 0.92
+      notes: "Association for Computing Machinery publications"
+
+  priority_3: # Tertiary, verify quality individually
+    - domain: "academia.edu"
+      name: "Academia.edu"
+      base_reliability: 0.75
+      notes: "Academic social network, mixed quality, verify individual papers"
+
+    - domain: "ssrn.com"
+      name: "SSRN"
+      base_reliability: 0.78
+      notes: "Social Science Research Network, preprints"
+
+    - domain: "biorxiv.org"
+      name: "bioRxiv"
+      base_reliability: 0.85
+      notes: "Biology preprint server"
+
+    - domain: "medrxiv.org"
+      name: "medRxiv"
+      base_reliability: 0.85
+      notes: "Medical research preprint server"
+
+blacklist: # Never use for academic research
+  - domain: "twitter.com"
+    reason: "Social media - not peer reviewed"
+  - domain: "facebook.com"
+    reason: "Social media - not peer reviewed"
+  - domain: "reddit.com"
+    reason: "Social media - not peer reviewed"
+  - domain: "quora.com"
+    reason: "Q&A site - not peer reviewed"
+  - domain: "medium.com"
+    reason: "Blog platform - not peer reviewed"
+  - domain: "wikipedia.org"
+    reason: "Crowdsourced - use as starting point only, not citation"
+
+quality_indicators:
+  required:
+    - peer_review
+    - citations
+    - author_credentials
+  preferred:
+    - doi
+    - institutional_affiliation
+    - publication_date
+    - methodology_section

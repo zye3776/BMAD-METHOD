@@ -1,0 +1,27 @@
+# Analyze Source Workflow Configuration
+# UI Migration Toolkit Module
+
+name: "analyze-source"
+description: "Analyze AI-generated submodule and produce comprehensive architecture documentation"
+author: "UI Migration Toolkit"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/ui-migrate/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+submodule_path: "{config_source}:submodule_path"
+migrations_output: "{config_source}:migrations_output"
+date: system-generated
+
+# Workflow type
+template: true
+instructions: "{installed_path}/instructions.md"
+default_output_file: "{migrations_output}/source-architecture-{{date}}.md"
+
+# Template for output
+template_file: "{installed_path}/template.md"
+
+# Installation path
+installed_path: "{project-root}/_bmad/ui-migrate/workflows/analyze-source"
+
+standalone: true

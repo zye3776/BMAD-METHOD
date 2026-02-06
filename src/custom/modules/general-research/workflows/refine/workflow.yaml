@@ -1,0 +1,82 @@
+# Refine Workflow Configuration
+# Content refinement and organization
+name: "refine"
+description: "Content refinement, deduplication, and organization for research outputs"
+author: "General Research Module"
+
+# Critical variables from config
+config_source: "{project-root}/_bmad/general-research/config.yaml"
+output_folder: "{config_source}:output_folder"
+research_output_path: "{config_source}:research_output_path"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+detail_level: "{config_source}:detail_level"
+date: system-generated
+
+# Workflow file paths
+installed_path: "{project-root}/_bmad/general-research/workflows/refine"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+
+# State management
+state_path: "{project-root}/.general-research/state"
+
+standalone: true
+
+# Refinement configuration
+refinement_config:
+  similarity_threshold: 0.85
+  min_content_words: 500
+
+  detail_levels:
+    minimal:
+      max_words: 1000
+      include_citations: true
+      include_analysis: false
+      include_excerpts: false
+    standard:
+      max_words: 3000
+      include_citations: true
+      include_analysis: true
+      include_excerpts: false
+    detailed:
+      max_words: 10000
+      include_citations: true
+      include_analysis: true
+      include_excerpts: true
+
+  organization_methods:
+    - by_theme
+    - by_chronology
+    - by_importance
+    - by_source_type
+
+# Quality requirements
+quality_requirements:
+  min_source_diversity: 3
+  max_duplicate_percent: 25
+  require_citations: true
+
+# Quality assessment weights
+quality_assessment:
+  content_depth:
+    weight: 0.3
+    thresholds:
+      excellent: 0.9
+      good: 0.7
+      acceptable: 0.5
+  source_diversity:
+    weight: 0.2
+    min_sources: 3
+  coherence:
+    weight: 0.25
+    checks:
+      - logical_flow
+      - consistent_terminology
+      - clear_transitions
+  completeness:
+    weight: 0.25
+    checks:
+      - topic_coverage
+      - question_answered
+      - gaps_identified
